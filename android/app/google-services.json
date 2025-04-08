@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "47472626719",
+    "project_id": "shopping-cart-ebaea",
+    "storage_bucket": "shopping-cart-ebaea.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:47472626719:android:0eb06aa1aac8c29357192a",
+        "android_client_info": {
+          "package_name": "rebelvi.application.shopping_cart"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZ3vTjJhPgsd5ENA415aDe--kb_V1UAo8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
