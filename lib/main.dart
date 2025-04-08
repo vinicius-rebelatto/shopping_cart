@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'screens/main_screen.dart';
 
 
 void main() async{
@@ -8,22 +9,40 @@ void main() async{
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  runApp(const ShoopingApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class ShoopingApp extends StatelessWidget {
+  const ShoopingApp({super.key});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.highContrastDark() //fromSeed(seedColor: Colors.red),
+        colorScheme: ColorScheme.highContrastDark(),//fromSeed(seedColor: Colors.red),
+        useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Shopping Cart'),
+      routerDelegate: AppRouter(),
+      routeInformationParser: const RouteInformationParserImpl(),
     );
+  }
+}
+
+// Parser simples para rotas
+class RouteInformationParserImpl extends RouteInformationParser<List<RouteSettings>> {
+  const RouteInformationParserImpl();
+
+  @override
+  Future<List<RouteSettings>> parseRouteInformation(RouteInformation routeInformation) async {
+    return [RouteSettings(name: routeInformation.location)];
+  }
+
+  @override
+  RouteInformation restoreRouteInformation(List<RouteSettings> configuration) {
+    return RouteInformation(location: configuration.last.name);
   }
 }
 
