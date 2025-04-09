@@ -52,7 +52,7 @@ class AppRouter extends RouterDelegate<List<RouteSettings>>
       body: body,
       floatingActionButton: _routes.last.name == '/'
         ? FloatingActionButton(
-          onPressed: () => push('/'),
+          onPressed: () => push('/add'),
           child: const Icon(Icons.add),
       )
       : null,
@@ -63,8 +63,8 @@ class AppRouter extends RouterDelegate<List<RouteSettings>>
     switch (settings.name) {
       case '/':
         return const ShoppingListScreen();
-      /*case '/add':
-        return const AddProductScreen();*/
+      case '/add':
+        return const AddProductScreen();
       default:
         return const NotFoundScreen();
     }
